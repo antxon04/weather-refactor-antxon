@@ -36,7 +36,7 @@ class WeatherApiClientTest {
         mockHttpClient = Mockito.mock(CloseableHttpClient.class);
         mockResponse = Mockito.mock(CloseableHttpResponse.class);
         mockEntity = Mockito.mock(HttpEntity.class);
-        client = new WeatherApiClient("https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&daily=weathercode&timezone=CET", mockHttpClient, new Gson()
+        client = new WeatherApiClient("", mockHttpClient, new Gson()
         );
     }
 
@@ -62,7 +62,7 @@ class WeatherApiClientTest {
      * */
     @Test
     void testFetchWeatherSuccess() throws Exception{
-        String json = "{\"daily\":{\"time\":[\"2025-09-17\"],\"weathercode\":[0]}}";
+        String json = "{daily:{time:[2025-09-17],weathercode:[0]}}";
 
         when(mockHttpClient.execute(any())).thenReturn(mockResponse);
         when(mockResponse.getEntity()).thenReturn(mockEntity);
@@ -98,7 +98,7 @@ class WeatherApiClientTest {
      * */
     @Test
     void testFetchWeatherInvalidJson() throws Exception{
-        String invalidJson = "{daily:{time:[\"2025-09-17\"],weathercode:[0]";
+        String invalidJson = "{daily:{time:[2025-09-17],weathercode:[0]";
 
         when(mockHttpClient.execute(any())).thenReturn(mockResponse);
         when(mockResponse.getEntity()).thenReturn(mockEntity);
@@ -115,7 +115,7 @@ class WeatherApiClientTest {
      * */
     @Test
     void testFetchWeatherEmptyDto() throws Exception{
-        String emptyJson = "{\"daily\":null}";
+        String emptyJson = "{daily:null}";
 
         when(mockHttpClient.execute(any())).thenReturn(mockResponse);
         when(mockResponse.getEntity()).thenReturn(mockEntity);
