@@ -6,7 +6,6 @@ import training.weather.exceptions.WeatherClientException;
 import training.weather.mapper.WeatherCodeMapper;
 import training.weather.model.OpenMeteoResponseDto;
 import training.weather.model.WeatherResponse;
-import training.weather.util.WeatherData;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,10 +19,8 @@ import static training.weather.util.WeatherData.TODAY;
  */
 @RequiredArgsConstructor
 public class WeatherForecastService {
-
     private final WeatherApiClient weatherApiClient;
     private final WeatherCodeMapper weatherCodeMapper;
-
 
     /**
      * Obtiene la predicción del clima para una fecha y ubicación.

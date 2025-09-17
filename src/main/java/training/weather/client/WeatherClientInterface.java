@@ -4,8 +4,6 @@ import lombok.NonNull;
 import training.weather.exceptions.WeatherClientException;
 import training.weather.model.OpenMeteoResponseDto;
 
-import java.io.IOException;
-
 
 /**
  * Interfaz para obtener la previsión del tiempo desde la API de Open-Meteo.

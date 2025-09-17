@@ -1,9 +1,5 @@
 package training.weather.util;
-
-import com.google.gson.Gson;
 import lombok.experimental.UtilityClass;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 
 import java.time.LocalDate;
 /**
@@ -14,14 +10,6 @@ import java.time.LocalDate;
  * */
 @UtilityClass
 public class WeatherData {
-
-    /** URL de la API */
-    public static final String API_URL = "https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&daily=weathercode&timezone=CET";
-    /** Cliente HTTP reutilizable*/
-    public static final CloseableHttpClient HTTP_CLIENT = HttpClients.createDefault();
-    /** Parser de JSON a objetos*/
-    public static final Gson GSON = new Gson();
-
 
     /**Fecha del día actual*/
     public static final LocalDate TODAY = LocalDate.now();
