@@ -56,7 +56,6 @@ class WeatherForecastServiceTest {
 
         assertTrue(result.isPresent());
         assertEquals("Clear sky", result.get().getDescription());
-
         verify(mokClient, times(1)).fetchWeather(40.4168, -3.7038);
     }
 
@@ -105,9 +104,7 @@ class WeatherForecastServiceTest {
         OpenMeteoResponseDto responseDto = new OpenMeteoResponseDto();
         responseDto.setDaily(daily);
 
-        when(mokClient.fetchWeather(anyDouble(), anyDouble())).thenReturn(responseDto);
-
-        WeatherForecastService service = new WeatherForecastService(mokClient, mapper);
+        when(mokClient.fetchWeather(40.4168, -3.7038)).thenReturn(responseDto);
 
         LocalDate dateNoExistence = LocalDate.of(2025, 9, 18);
 

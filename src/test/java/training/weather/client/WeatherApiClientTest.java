@@ -53,10 +53,7 @@ class WeatherApiClientTest {
         assertTrue(client.getApiUrl().contains("longitude=%s"));
 
         assertNotNull(client.getHttpClient());
-        assertTrue(client.getHttpClient() instanceof CloseableHttpClient);
-
         assertNotNull(client.getGson());
-        assertTrue(client.getGson() instanceof Gson);
     }
 
     /**
@@ -75,9 +72,9 @@ class WeatherApiClientTest {
 
         assertNotNull(dto);
         assertEquals(1, dto.getDaily().getTime().size());
-        assertEquals("2025-09-17", dto.getDaily().getTime().get(0));
+        assertEquals("2025-09-17", dto.getDaily().getTime().getFirst());
         assertEquals(1, dto.getDaily().getWeatherCode().size());
-        assertEquals(0, dto.getDaily().getWeatherCode().get(0));
+        assertEquals(0, dto.getDaily().getWeatherCode().getFirst());
 
         verify(mockHttpClient, times(1)).execute(any());
     }

@@ -1,8 +1,6 @@
 package training.weather.client;
 import com.google.gson.Gson;
-import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -25,7 +23,7 @@ public class WeatherApiClient implements WeatherClientInterface{
     private final String apiUrl;
 
     /**
-     * Cliente HTTP que se reutilizable para realizar las peticiones a la API
+     * Cliente HTTP que es reutilizable para realizar las peticiones a la API
      * */
     private final CloseableHttpClient httpClient;
 
